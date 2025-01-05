@@ -13,7 +13,7 @@ function Jokes (props) {
     return(
         <article>
             {props.joke && <h3>{props.joke}</h3>}
-            {isShown && <p>{props.punchline}</p>}
+            {isShown ? <p>{props.punchline}</p> : null /* use ternerary instead*/}
             <button onClick={toggleShown}>{isShown ? "Hide" : "Show"} Punchline</button> {/* use ternerary instead*/}
             {/*{!isShown && <button onClick={toggleShown}>Show Punchline</button>}
             {isShown && <button onClick={toggleShown}>Hide Punchline</button>}*/}
