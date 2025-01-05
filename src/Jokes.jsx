@@ -1,11 +1,21 @@
+import { useState } from "react"
+
 function Jokes (props) {
 
-    console.log(props.cooments)
+    const [isShown, setIsShown] = useState(false)
+
+    function toggleShown () {
+        setIsShown(prevShown => !prevShown)
+    }
+
+    console.log(isShown)
+
     return(
         <article>
-                {props.joke && <h3 className="joke">Setup: {props.joke}</h3>}
-                <h3>Punch Line: {props.punchline}</h3>
-                <hr />
+            {props.joke && <h3>{props.joke}</h3>}
+            {isShown && <p>{props.punchline}</p>}
+            <button onClick={toggleShown}>Show Punchline</button>
+            <hr />
         </article>
     )
 }
